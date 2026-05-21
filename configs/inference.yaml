@@ -1,0 +1,9 @@
+inference:
+  checkpoint: ./outputs/best.pt
+  image_dir: ./dataset/images/test
+  output_dir: ./outputs/inference
+  score_threshold: 0.2
+  nms_threshold: 0.6
+  species_threshold: 0.6
+  genus_threshold: 0.5
+  family_threshold: 0.4
