@@ -11,6 +11,8 @@ def stack_targets(targets, device):
 
 def run_epoch(model, loader, criterion, optimizer, scaler, device, train=True, amp=True):
     model.train(train)
+    if train and optimizer is None:
+        raise ValueError('optimizer must be provided when train=True')
     total_loss = 0.0
     total_acc = 0.0
     n = 0
