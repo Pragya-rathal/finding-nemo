@@ -1,0 +1,45 @@
+seed: 42
+output_dir: runs/lhlfnetpp
+system:
+  num_workers: 4
+  pin_memory: true
+  persistent_workers: true
+  channels_last: true
+  amp: true
+  cudnn_benchmark: true
+  allow_tf32: true
+
+data:
+  dataset_root: auto
+  image_size: 512
+  val_split: 0.2
+  cache_metadata: true
+  max_samples: null
+  batch_size: 8
+  task_mode: unified
+
+model:
+  backbone: mit_b0
+  fpn_out_channels: 160
+  embed_dim: 256
+  num_orders: 64
+  num_families: 256
+  num_genera: 512
+
+loss:
+  focal_gamma: 2.0
+  label_smoothing: 0.05
+  taxonomy_weight: 1.0
+  bbox_weight: 2.0
+  objectness_weight: 1.0
+
+train:
+  epochs: 20
+  lr: 0.0003
+  weight_decay: 0.01
+  grad_clip: 1.0
+  early_stop_patience: 8
+
+inference:
+  species_conf_threshold: 0.45
+  fallback_taxonomy_threshold: 0.3
