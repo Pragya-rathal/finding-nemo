@@ -1,0 +1,13 @@
+torch
+torchvision
+timm
+albumentations
+opencv-python-headless
+numpy
+pandas
+scikit-learn
+tqdm
+pillow
+pyyaml
+onnx
+onnxruntime
